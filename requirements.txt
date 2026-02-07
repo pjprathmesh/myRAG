@@ -1,0 +1,7 @@
+langchain
+langchain-community
+main::langchain-text-splitters
+conda-forge::langchain-ollama
+conda-forge::langchain-chroma
+python-dotenv
+ollama
