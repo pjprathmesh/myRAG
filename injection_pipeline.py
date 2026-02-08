@@ -31,6 +31,7 @@ def load_documents(docs_path):
     documents = loader.load()
 
     #print first doc info
+    print(f"Total docs = {len(documents)}")
     print("***************************************docs preview and info********************")
     print(f"Source: {documents[0].metadata["source"]}")
     print(f"Content length: {len(documents[0].page_content)}")
@@ -40,11 +41,26 @@ def load_documents(docs_path):
 
     return documents
 
+def split_documents(documents, chunk_size=800, chunk_overlap=0):
+    '''
+    Split documents into smaller chunks without overap
+    
+    :param documents: input list of docs return from load_documents()
+    :param chunk_size: size of chunk
+    :param chunk_overlap: Description
+    '''
+    text_splitter = CharacterTextSplitter(chunk_size=chunk_size,chunk_overlap=chunk_overlap)
+    chunks = text_splitter.split_documents(documents)
+
+    print(f"Total chunks = {len(chunks)}")
+    return chunks
+
 def main():
     #1. Loading the files
     documents = load_documents(docs_path="training_docs")
 
     #2. Chunking the files
+    chunks = split_documents(documents=documents,)
     #3. Embedding and storing in Chroma Vector DB
     pass
 
