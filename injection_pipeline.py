@@ -1,20 +1,12 @@
 import os
 from langchain_community.document_loaders import TextLoader, DirectoryLoader
 from langchain_text_splitters import CharacterTextSplitter
-import ollama
+from langchain_ollama import OllamaEmbeddings
 from langchain_chroma import Chroma
 from dotenv import load_dotenv
 
 load_dotenv()
 
-def get_embedding_vector(input):
-    '''
-    return multidimentional array of embedding for the multidimentional input
-    
-    :param input: multidim array of text
-    '''
-    vector = ollama.embed(model='embeddinggemma',input=input)
-    return vector
 
 def load_documents(docs_path):
     '''
@@ -55,14 +47,34 @@ def split_documents(documents, chunk_size=800, chunk_overlap=0):
     print(f"Total chunks = {len(chunks)}")
     return chunks
 
+def create_vector_store(chunks, persist_directory="db/chroma_db"):
+    '''
+    create and persist ChromaDB vector store
+    
+    :param chunks: chunks list that has all the docs merge and broken into chunks
+    :param persist_directory: directory to store ChromaDB
+    '''
+    print("Creating embeeding and storing in ChromaDB")
+    embedding_model = OllamaEmbeddings(model="embeddinggemma")
+    print("--- Creating Vector store ---")
+    vectorstore = Chroma.from_documents(documents=chunks,
+                                        embedding=embedding_model,
+                                        persist_directory=persist_directory,
+                                        collection_metadata={"hnsw:space":"cosine"})
+    print("--- Finished creating vector store ---")
+    print(f"Vector store created and saved to {persist_directory}")
+    return vectorstore
+
 def main():
     #1. Loading the files
     documents = load_documents(docs_path="training_docs")
 
     #2. Chunking the files
     chunks = split_documents(documents=documents,)
+
     #3. Embedding and storing in Chroma Vector DB
-    pass
+    vectorstore = create_vector_store(chunks=chunks)
+    
 
 if __name__=="__main__":
     main()
