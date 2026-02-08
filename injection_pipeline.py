@@ -8,11 +8,42 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def get_embedding_vector(input):
+    '''
+    return multidimentional array of embedding for the multidimentional input
+    
+    :param input: multidim array of text
+    '''
     vector = ollama.embed(model='embeddinggemma',input=input)
     return vector
 
+def load_documents(docs_path):
+    '''
+    Load documents content and metadata in a list and return it
+    
+    :param docs_path: path to training docs
+    '''
+    print(f"Loading docs from {docs_path}")
+    loader = DirectoryLoader(path=docs_path,
+                             glob="*.txt",
+                             loader_cls=TextLoader,
+                             loader_kwargs={"encoding": "utf-8"}
+                             )
+    documents = loader.load()
+
+    #print first doc info
+    print("***************************************docs preview and info********************")
+    print(f"Source: {documents[0].metadata["source"]}")
+    print(f"Content length: {len(documents[0].page_content)}")
+    print(f"Content Preview: {documents[0].page_content[:100]}")
+    print(f"Metadata: {documents[0].metadata}")
+    print("***************************************END of docs preview and info********************")
+
+    return documents
+
 def main():
     #1. Loading the files
+    documents = load_documents(docs_path="training_docs")
+
     #2. Chunking the files
     #3. Embedding and storing in Chroma Vector DB
     pass
