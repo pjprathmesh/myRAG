@@ -1,0 +1,125 @@
+conda render
+
+CONDA(1)                         User Commands                        CONDA(1)
+
+
+
+
+NAME
+       conda - conda render
+
+
+DESCRIPTION
+       usage: conda-render [-h] [-V] [-n] [--output] [--python PYTHON] [--perl
+       PERL]
+
+       [--numpy NUMPY] [--R R_BASE] [--lua LUA]
+              [--bootstrap  BOOTSTRAP]  [--append-file   APPEND_SECTIONS_FILE]
+              [--clobber-file CLOBBER_SECTIONS_FILE] [-m VARIANT_CONFIG_FILES]
+              [-e  EXCLUSIVE_CONFIG_FILE]  [--old-build-string]  [-c  CHANNEL]
+              [--override-channels] [-f FILE] [--verbose] RECIPE_PATH
+
+       Tool  for  building conda packages. A conda package is a binary tarball
+       containing system-level libraries, Python modules, executable programs,
+       or other components. conda keeps track of dependencies between packages
+       and platform specifics, making it simple to create working environments
+       from
+
+              different sets of packages.
+
+
+OPTIONS
+   positional arguments:
+       RECIPE_PATH
+              Path to recipe directory.
+
+   optional arguments:
+       -h, --help
+              Show this help message and exit.
+
+       -V, --version
+              Show the conda-build version number and exit.
+
+       -n, --no-source
+              When  templating can't be completed, do not obtain the source to
+              try fill in related template variables.
+
+       --output
+              Output the conda package filename which would have been created
+
+       --python PYTHON
+              Set the Python version used by conda build.
+
+       --perl PERL
+              Set the Perl version used by conda build.
+
+       --numpy NUMPY
+              Set the NumPy version used by conda build.
+
+       --R R_BASE
+              Set the R version used by conda build.
+
+       --lua LUA
+              Set the Lua version used by conda build.
+
+       --bootstrap BOOTSTRAP
+              Provide initial configuration in addition to recipe.  Can  be  a
+              path to or name of an environment, which will be emulated in the
+              package.
+
+       --append-file APPEND_SECTIONS_FILE
+              Append data in meta.yaml with fields from this file.  Jinja2  is
+              not done on appended fields
+
+       --clobber-file CLOBBER_SECTIONS_FILE
+              Clobber data in meta.yaml with fields from this file.  Jinja2 is
+              not done on clobbered fields.
+
+       -m VARIANT_CONFIG_FILES, --variant-config-files VARIANT_CONFIG_FILES
+              Additional variant config files to add.  These  yaml  files  can
+              contain  keys such as `c_compiler` and `target_platform` to form
+              a build matrix.
+
+       -e EXCLUSIVE_CONFIG_FILE, --exclusive-config-file EXCLUSIVE_CONFIG_FILE
+              Exclusive variant config file  to  add.  Compared  with  --vari-
+              ant-config-files, you're allowed only one file here. Providing a
+              file here disables searching in your home directory and in  cwd.
+              The  file  specified  here  comes  at the start of the order, as
+              opposed to the end with --variant-config-files. Any config files
+              in  recipes  and  any  config files specified with --variantcon-
+              fig-files will override values from this file.
+
+       --old-build-string
+              Disable hash additions to filenames to distinguish package vari-
+              ants  from  one another. NOTE: any filename collisions are yours
+              to handle. Any variants with overlapping names  within  a  build
+              will clobber each other.
+
+       -c CHANNEL, --channel CHANNEL
+              Additional  channel  to  search  for  packages.  These  are URLs
+              searched in the order they  are  given  (including  file://  for
+              local directories). Then, the defaults or channels from .condarc
+              are searched (unless --override-channels is given). You can  use
+              'defaults'  to  get the default packages for conda, and 'system'
+              to get the system  packages,  which  also  takes  .condarc  into
+              account.  You  can  also  use  any  name  and the .condarc chan-
+              nel_alias value will be prepended. The default channel_alias  is
+              http://conda.anaconda.org/.
+
+       --override-channels
+              Do  not search default or .condarc channels. Requires --channel.
+
+       -f FILE, --file FILE
+              write YAML to file, given as argument here. Overwrites  existing
+              files.
+
+       --verbose
+              Enable verbose output from download tools and progress updates
+
+   conda commands available from other packages:
+              build  build-all  convert  develop env index inspect metapackage
+              render server sign skeleton smithy tracker verify
+
+
+
+Anaconda, Inc.                     June 2018                          CONDA(1)

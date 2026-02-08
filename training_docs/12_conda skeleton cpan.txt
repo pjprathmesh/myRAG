@@ -1,0 +1,49 @@
+conda skeleton cpan
+
+CONDA(1)                         User Commands                        CONDA(1)
+
+
+
+
+NAME
+       conda - conda skeleton cpan
+
+
+DESCRIPTION
+       usage:  conda-skeleton  cpan  [-h] [--output-dir OUTPUT_DIR] [--version
+       VERSION]
+
+       [--meta-cpan-url META_CPAN_URL] [--recursive]
+              [--force] [--write_core] packages [packages ...]
+
+   positional arguments:
+       packages
+              CPAN packages to create recipe skeletons for.
+
+   optional arguments:
+       -h, --help
+              Show this help message and exit.
+
+       --output-dir OUTPUT_DIR
+              Directory to write recipes to (default: .).
+
+       --version VERSION
+              Version to use. Applies to all packages.
+
+       --meta-cpan-url META_CPAN_URL
+              URL to use for MetaCPAN API. It must include a version, such  as
+              v1
+
+       --recursive
+              Create  recipes  for  dependencies  if they do not already exist
+              (default: False).
+
+       --force
+              Force overwrite of existing recipes (default: False).
+
+       --write_core
+              Write recipes for perl core modules (default: False).
+
+
+
+Anaconda, Inc.                     June 2018                          CONDA(1)

@@ -1,0 +1,61 @@
+conda develop
+
+CONDA(1)                         User Commands                        CONDA(1)
+
+
+
+
+NAME
+       conda - conda develop
+
+
+DESCRIPTION
+       usage:  conda-develop  [-h]  [-npf] [-b] [-c] [-u] [-n ENVIRONMENT | -p
+       PATH]
+
+              PATH [PATH ...]
+
+       Install a Python package in 'development mode'.
+
+       This works by creating a conda.pth file in site-packages.
+
+
+OPTIONS
+   positional arguments:
+       PATH   Path to the source directory.
+
+   optional arguments:
+       -h, --help
+              Show this help message and exit.
+
+       -npf, --no-pth-file
+              Relink compiled extension dependencies against  libraries  found
+              in current conda env. Do not add source to conda.pth.
+
+       -b, --build_ext
+              Build  extensions  inplace,  invoking: python setup.py build_ext
+              --inplace; add to conda.pth; relink runtime libraries  to  envi-
+              ronment's lib/.
+
+       -c, --clean
+              Invoke  clean  on  setup.py:  python  setup.py  clean  use  with
+              build_ext to clean before building.
+
+       -u, --uninstall
+              Removes package if installed in 'development mode'  by  deleting
+              path  from conda.pth file. Ignore other options - just uninstall
+              and exit
+
+       -n ENVIRONMENT, --name ENVIRONMENT
+              Name of environment.
+
+       -p PATH, --prefix PATH
+              Full path to environment prefix.
+
+   conda commands available from other packages:
+              build build-all convert develop env  index  inspect  metapackage
+              render server sign skeleton smithy tracker verify
+
+
+
+Anaconda, Inc.                     June 2018                          CONDA(1)

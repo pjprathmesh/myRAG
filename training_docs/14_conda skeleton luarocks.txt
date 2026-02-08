@@ -1,0 +1,37 @@
+conda skeleton luarocks
+
+CONDA(1)                         User Commands                        CONDA(1)
+
+
+
+
+NAME
+       conda - conda skeleton luarocks
+
+
+DESCRIPTION
+       usage: conda-skeleton luarocks [-h] [--output-dir OUTPUT_DIR]
+
+       [--version VERSION] [--recursive]
+              packages [packages ...]
+
+   positional arguments:
+       packages
+              luarocks packages to create recipe skeletons for.
+
+   optional arguments:
+       -h, --help
+              Show this help message and exit.
+
+       --output-dir OUTPUT_DIR
+              Directory to write recipes to (default: .).
+
+       --version VERSION
+              Version to use. Applies to all packages.
+
+       --recursive
+              Create recipes for dependencies if they do not already exist.
+
+
+
+Anaconda, Inc.                     June 2018                          CONDA(1)

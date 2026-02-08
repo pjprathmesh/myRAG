@@ -1,0 +1,51 @@
+conda index
+
+CONDA(1)                         User Commands                        CONDA(1)
+
+
+
+
+NAME
+       conda - conda index
+
+
+DESCRIPTION
+       usage: conda-index [-h] [-c] [-f] [-q] [--no-remove]
+
+              [--channel-name CHANNEL_NAME] [dir [dir ...]]
+
+       Update package index metadata files in given directories.
+
+
+OPTIONS
+   positional arguments:
+       dir    Directory that contains an index to be updated.
+
+   optional arguments:
+       -h, --help
+              Show this help message and exit.
+
+       -c, --check-md5
+              Use  MD5 values instead of file modification times for determin-
+              ing if a package's metadata needs to be updated.
+
+       -f, --force
+              Force reading all files.
+
+       -q, --quiet
+              Don't show any output.
+
+       --no-remove
+              Don't remove entries for files that don't exist.
+
+       --channel-name CHANNEL_NAME
+              Adding a channel name will create an index.html file within  the
+              subdir.
+
+   conda commands available from other packages:
+              build  build-all  convert  develop env index inspect metapackage
+              render server sign skeleton smithy tracker verify
+
+
+
+Anaconda, Inc.                     June 2018                          CONDA(1)
