@@ -1,0 +1,51 @@
+conda skeleton
+
+CONDA(1)                         User Commands                        CONDA(1)
+
+
+
+
+NAME
+       conda - conda skeleton
+
+
+DESCRIPTION
+       usage: conda-skeleton [-h] {cpan,cran,luarocks,pypi,rpm} ...
+
+       Generates  a  boilerplate/skeleton  recipe,  which you can then edit to
+       create a full recipe. Some simple skeleton recipes may  not  even  need
+       edits.
+
+
+OPTIONS
+   positional arguments:
+              {cpan,cran,luarocks,pypi,rpm}
+
+       cpan   Create  recipe skeleton for packages hosted on the Comprehensive
+              Perl Archive Network (CPAN) (cpan.org).
+
+       cran   Create recipe skeleton for packages hosted on the  Comprehensive
+              R Archive Network (CRAN) (cran.r-project.org).
+
+       luarocks
+              Create recipe skeleton for luarocks, hosted at luarocks.org
+
+       pypi   Create recipe skeleton for packages hosted on the Python Packag-
+              ing Index (PyPI) (pypi.io).
+
+       rpm    Create recipe skeleton for RPM files
+
+   optional arguments:
+       -h, --help
+              Show this help message and exit.
+
+       Run --help on the subcommands like 'conda skeleton pypi --help' to  see
+       the options available.
+
+   conda commands available from other packages:
+              build  build-all  convert  develop env index inspect metapackage
+              render server sign skeleton smithy tracker verify
+
+
+
+Anaconda, Inc.                     June 2018                          CONDA(1)

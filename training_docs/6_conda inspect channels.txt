@@ -1,0 +1,38 @@
+conda inspect channels
+
+CONDA(1)                         User Commands                        CONDA(1)
+
+
+
+
+NAME
+       conda - conda inspect channels
+
+
+DESCRIPTION
+       usage:  conda-inspect  channels  [-h]  [--verbose] [--test-installable]
+       [channel]
+
+       Tools for investigating conda channels.
+
+
+OPTIONS
+   positional arguments:
+       channel
+              The channel to test. The default is defaults.
+
+   optional arguments:
+       -h, --help
+              Show this help message and exit.
+
+       --verbose
+              Show verbose output. Note  that  error  output  to  stderr  will
+              always be shown regardless of this flag.
+
+       --test-installable, -t
+              Test every package in the channel to see if it is installable by
+              conda.
+
+
+
+Anaconda, Inc.                     June 2018                          

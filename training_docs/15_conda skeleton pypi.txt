@@ -1,0 +1,99 @@
+conda skeleton pypi
+
+CONDA(1)                         User Commands                        CONDA(1)
+
+
+
+
+NAME
+       conda - conda skeleton pypi
+
+
+DESCRIPTION
+       usage:  conda-skeleton  pypi  [-h] [--output-dir OUTPUT_DIR] [--version
+       VERSION]
+
+       [--all-urls] [--pypi-url PYPI_URL] [--prompt]
+              [--all-extras] [--recursive] [--version-compare]  [--python-ver-
+              sion  {2.7,3.4,3.5}]  [--manual-url]  [--noarch-python]  [--set-
+              up-options    SETUP_OPTIONS]    [--pin-numpy]     [--extra-specs
+              EXTRA_SPECS] packages [packages ...]
+
+   positional arguments:
+       packages
+              PyPi packages to create recipe skeletons for. You can also spec-
+              ify package[extra,...] features.
+
+   optional arguments:
+       -h, --help
+              Show this help message and exit.
+
+       --output-dir OUTPUT_DIR
+              Directory to write recipes to (default: .).
+
+       --version VERSION
+              Version to use. Applies to all packages. If  not  specified  the
+              lastest visible version on PyPI is used.
+
+       --all-urls
+              Look  at  all  URLs,  not just source URLs. Use this if it can't
+              find the right URL.
+
+       --pypi-url PYPI_URL
+              URL to use for PyPI (default: https://pypi.io/pypi/).
+
+       --prompt
+              Prompt the user on ambiguous choices. Default  is  to  make  the
+              best possible choice and continue.
+
+       --all-extras
+              Add all extra feature requirements. Applies to all packages.
+
+       --recursive
+              Create recipes for dependencies if they do not already exist.
+
+       --version-compare
+              Compare  the  package  version  of the recipe with all available
+              versions on PyPI.
+
+       --python-version {2.7,3.4,3.5}
+              Version of Python to use to run setup.py. Default is 3.6.
+
+       --manual-url
+              Manually  choose  source  url  when  more  than  one  urls   are
+              present.Default is the one with least source size.
+
+       --noarch-python
+              Creates recipe as noarch python
+
+       --setup-options SETUP_OPTIONS
+              Options to be added to setup.py install in the recipe.  The same
+              options are passed to setup.py install in both the  construction
+              of  the recipe and in the recipe itself.For options that include
+              a double-hypen or to  pass  multiple  options,  use  the  syntax
+              --setupoptions="--option1 --option-with-arg arg"
+
+       --pin-numpy
+              Ensure  that  the  generated  recipe pins the version of numpyto
+              CONDA_NPY.
+
+       --extra-specs EXTRA_SPECS
+              Extra specs for the build environment to extract the skeleton.
+
+
+EXAMPLES
+       Create a recipe for the sympy package:
+
+              conda skeleton pypi sympy
+
+       Create a recipes for the flake8 package and all its dependencies:
+
+              conda skeleton pypi --recursive flake8
+
+       Use the --pypi-url flag to point to a PyPI mirror url:
+
+              conda skeleton pypi --pypi-url <mirror-url> package_name
+
+
+
+Anaconda, Inc.                     June 2018                          CONDA(1)
