@@ -34,9 +34,7 @@ def retrive_top_k_docs(query,
 
     return relevant_docs
 
-query = "how to build a conda package?"
-print(f"User query = {query}")
-relevant_docs = retrive_top_k_docs(query, k=10)
+
 
 if __name__=="__main__":
     query = "how to build a conda package?"
