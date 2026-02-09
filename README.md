@@ -1,2 +1,2 @@
 # myRAG
-RAG for training Anaconda docs
+RAG for training Anaconda docs 
